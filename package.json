@@ -1,0 +1,24 @@
+{
+  "name": "uba-server-proxy",
+  "version": "0.0.1",
+  "description": "proxy server plugin for uba-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinper-uba/uba-server-proxy.git"
+  },
+  "keywords": [
+    "uba",
+    "uba-server",
+    "proxy"
+  ],
+  "author": "yueming@yonyou.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tinper-uba/uba-server-proxy/issues"
+  },
+  "homepage": "https://github.com/tinper-uba/uba-server-proxy#readme"
+}
