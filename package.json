@@ -1,6 +1,6 @@
 {
   "name": "uba-server-proxy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "proxy server plugin for uba-server",
   "main": "index.js",
   "scripts": {
