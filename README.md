@@ -19,16 +19,16 @@ $ npm install uba-server uba-server-proxy -D
 open `uba.config.js` file 
 ```js
 plugins: {
-    proxy : {
-        target : "https://cnodejs.org"
-    }
+    proxy: [{
+          router : "/api/*",
+          target: "https://cnodejs.org"
+        },{
+          router : ["/users/*","/orgs/*"],
+          target: "https://api.github.com"
+        }]
 }
 ```
 
 > Look at more https://www.npmjs.com/package/http-proxy-middleware#options
 
 
-# API
-
-### target
-- url string to be parsed with the url module
