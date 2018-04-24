@@ -1,33 +1,13 @@
 /**
  * proxy server for uba-server
- * Date : 2018-01-04 15:10:52
+ * Date : 2018-04-24 14:09:43
  */
 
-const Proxy = require("http-proxy-middleware");
-const c2k = require("koa2-connect");
-const Router = require("koa-router");
-const chalk = require("chalk");
-const utils = require("./utils");
+const proxy = require("http-proxy-middleware");
 
-
-module.exports = (app, opt) => {
-  let proxyOpt = opt;
-  let router = new Router();
-  for (let i = 0; i < proxyOpt.length; i++) {
-    let key = proxyOpt[i];
-    router.all(key.router, c2k(Proxy(
-      Object.assign({
-        logLevel : "debug",
-        target: "https://api.github.com/",
-        changeOrigin: true,
-        onProxyRes: (proxyRes) => {
-          proxyRes.headers["Uba-Server-Proxy"] = require("./package.json").version;
-        }
-        // onProxyReq: (proxyReq, req, res) => {
-        //   console.log(chalk.green(`[${utils.getTime()}] [proxy] : Method : ${proxyReq.method} -> Proxy : ${proxyReq.path}`));
-        // }
-      }, key)
-    )));
+module.exports = (app, opts) => {
+  for (let i = 0; i < opts.length; i++) {
+    let proxyOpt = opts[i];
+    app.use(proxy(proxyOpt.url, proxyOpt.options));
   }
-  app.use(router.routes());
 }

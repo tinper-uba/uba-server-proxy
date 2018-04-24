@@ -11,22 +11,34 @@
 # Installation
 
 ```bash
-$ npm install uba-server uba-server-proxy -D
+$ npm install uba-server-proxy -D
 ```
 
 # Usage
 
-open `uba.config.js` file 
+Edit the `.ubarc` file
+
 ```js
-plugins: {
-    proxy: [{
-          router : "/api/*",
-          target: "https://cnodejs.org"
-        },{
-          router : ["/users/*","/orgs/*"],
-          target: "https://api.github.com"
-        }]
+
+{
+  "proxy": [{
+    "url": "/api",
+    "options": {
+      "target": "http://cnodejs.org",
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }, {
+    "url": ["/users", "/orgs"],
+    "options": {
+      "target": "https://api.github.com",
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }]
 }
+
+
 ```
 
 > Look at more https://www.npmjs.com/package/http-proxy-middleware#options

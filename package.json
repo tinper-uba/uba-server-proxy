@@ -1,6 +1,6 @@
 {
   "name": "uba-server-proxy",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "proxy server plugin for uba-server",
   "main": "index.js",
   "scripts": {
@@ -22,8 +22,6 @@
   },
   "homepage": "https://github.com/tinper-uba/uba-server-proxy#readme",
   "dependencies": {
-    "chalk": "^2.3.0",
-    "http-proxy-middleware": "^0.17.4",
-    "koa2-connect": "^1.0.2"
+    "http-proxy-middleware": "^0.18.0"
   }
 }
